@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Esercizio JS biglietto treno form</title>
+</head>
+<body>
+    <!-- Wrapper all page -->
+    <div class="wrapper">
+        <!-- Main container -->
+        <div class="container-fluid d-flex justify-content-center center">
+            <div class="row">
+                <!-- Calculate tiket page card -->
+                <div class="col-sm-12 col-md-12 col-xl-12 col-xxl-12 d-flex flex-column">
+                    <!-- title -->
+                    <h1 class="text-white text-center">
+                        CALCOLA IL PREZZO DEL TUO BIGLIETTO
+                    </h1>
+                        <!-- informations container -->
+                        <div class="container bg-white p-3 rounded-3">
+                            <div class="row">
+                                <!-- Name input -->
+                                    <div class="col-sm-4">
+                                            <label for="form-control" class="form-label">Nome Cognome</label>
+                                            <input id="nameSurname" class="form-control" type="text" placeholder="Inserisci il tuo Nome e Cognome" aria-label="default input example">
+                                    </div>
+                                <!-- Distance input -->
+                                    <div class="col-sm-4">
+                                        <label for="form-control" class="form-label">Km da percorrere</label>
+                                        <input id="distance" class="form-control" type="text" placeholder="Seleziona la distanza da percorrere" aria-label="default input example">
+                                    </div>
+                                <!-- Age range input -->
+                                    <div class="col-sm-4">
+                                        <label for="userAge" class="form-label">Fascia d'et&agrave;</label>
+                                        <select class="form-select" id="userAge">
+                                            <option>Scegli...</option>
+                                            <option  value="1">Minorenne-18</option>
+                                            <option  value="2">Senior 65+</option>
+                                            <option  value="3">Maggiorenne non senior 18-64</option>
+                                        </select>
+                                    </div>
+                                <!-- Buttons input -->
+                                    <div class="col-sm-12 p-3 d-flex justify-content-center">
+                                        <button id="confirm" class="btn bg-primary mx-2 text-white">
+                                            Genera
+                                        </button>
+                                        <button id="resetAll" class="btn bg-danger mx-2 text-white">
+                                            Annulla
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <!-- Hidden section -->
+                <div class="col-sm-12 col-md-12 col-xl-12 col-xxl-12 d-flex flex-column mt-5">
+                    <div id="container_hidden">
+                        <!-- title -->
+                        <h1 class="text-white text-center">
+                            IL TUO BIGLIETTO
+                        </h1>
+                        <!-- hidden ticket -->
+                        <div class="ticket_card d-flex">
+                            <div class="container bg-white p-3">
+                                <!-- tiket title -->
+                                <h5>
+                                    INFORMAZIONI DEL PASSEGGERO:
+                                </h5>
+                                <!-- Passenger info -->
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome del Passeggero:</th>
+                                            <th scope="col">Offerta:</th>
+                                            <th scope="col">Carrozza</th>
+                                            <th scope="col">ID Treno</th>
+                                            <th scope="col">Costo Biglietto:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="passengerName"></td>
+                                            <td id="kindOfOffer"></td>
+                                            <td id="carriageNum"></td>
+                                            <td id="trainCode"></td>
+                                            <td id="ticket_prc"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Script prezzo del biglietto -->
+    <script type="text/javascript" src="js/script.js">
+
+    </script>
+</body>
+</html>
