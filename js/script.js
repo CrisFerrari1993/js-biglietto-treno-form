@@ -18,56 +18,61 @@ let discount = 0;
 
 // Declarations of buttons variables
 
-const btnConfirm = document.getElementById('confirm');
+const myForm = document.getElementById('myForm');
 const resetAll = document.getElementById('resetAll');
+const confrmAll = document.getElementById('confirm');
 
 // bntConfirm add event listener function
 
-btnConfirm.addEventListener('click',
+myForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    confrmAll.addEventListener('click',
+        function () {
+            //user variables declaration
+            let userName = document.getElementById('nameSurname').value;
+            let userDistance = document.getElementById('distance').value;
+            let userAge = document.getElementById('userAge').value;
 
-    function () {
-        //user variables declaration
-        let userName = document.getElementById('nameSurname').value;
-        let userDistance = document.getElementById('distance').value;
-        let userAge = document.getElementById('userAge').value;
+            //  debug (control user output)
+            console.log(userName);
+            console.log(userDistance);
+            console.log(userAge);
 
-        //  debug (control user output)
-        console.log(userName);
-        console.log(userDistance);
-        console.log(userAge);
+            //discount application
+            if (userAge == '1') {
+                discount = 0.2;
+            } else if (userAge == '2') {
+                discount = 0.4;
+            } else {
+                discount = 0;
+            }
 
-        //discount application
-        if (userAge == '1') {
-            discount = 0.2;
-        } else if (userAge == '2') {
-            discount = 0.4;
-        } else {
-            discount = 0;
-        }
+            // ticket price 
 
-        // ticket price 
+            let ticketPrice = (userDistance * priceForKm);
+            ticketPrice -= ticketPrice * discount;
 
-        let ticketPrice = (userDistance * priceForKm);
-        ticketPrice -= ticketPrice * discount;
+            if (userAge == '1') {
+                document.getElementById('kindOfOffer').innerHTML = 'Sconto Under18 (-20%)';
+            } else if (userAge == '2') {
+                document.getElementById('kindOfOffer').innerHTML = 'Sconto Senior (-40%)';
+            } else {
+                document.getElementById('kindOfOffer').innerHTML = 'Tariffa Standard';
+            }
+            //User info print output on hidden ticket
 
-        if (userAge == '1') {
-            document.getElementById('kindOfOffer').innerHTML = 'Sconto Under18 (-20%)';
-        } else if (userAge == '2') {
-            document.getElementById('kindOfOffer').innerHTML = 'Sconto Senior (-40%)';
-        } else {
-            document.getElementById('kindOfOffer').innerHTML = 'Tariffa Standard';
-        }
-        //User info print output on hidden ticket
+            document.getElementById('passengerName').innerHTML = userName;
+            document.getElementById('carriageNum').innerHTML = Math.floor((Math.random() * 10) + 1);
+            document.getElementById('trainCode').innerHTML = Math.floor((Math.random() * 1000) + 1);
+            document.getElementById('ticket_prc').innerHTML = (ticketPrice).toFixed(2);
 
-        document.getElementById('passengerName').innerHTML = userName;
-        document.getElementById('carriageNum').innerHTML = Math.floor((Math.random() * 10) + 1);
-        document.getElementById('trainCode').innerHTML = Math.floor((Math.random() * 1000) + 1);
-        document.getElementById('ticket_prc').innerHTML = (ticketPrice).toFixed(2);
-
-        let hiddenTicket = document.getElementById('container_hidden');
-        hiddenTicket.style.display = 'block';
+            let hiddenTicket = document.getElementById('container_hidden');
+            hiddenTicket.style.display = 'block';
+            }
+    
+        );
+    
     }
-
 );
 // Reset all add event listener funcion
 
